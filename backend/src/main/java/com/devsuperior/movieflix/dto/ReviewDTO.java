@@ -39,6 +39,11 @@ public class ReviewDTO {
 		userName = entity.getUser().getUsername();
 		userEmail = entity.getUser().getEmail();
 	}
+	
+	public ReviewDTO(String text, String userName) {
+		this.text = text;
+		this.userName = userName;
+	}
 
 	public Long getId() {
 		return id;

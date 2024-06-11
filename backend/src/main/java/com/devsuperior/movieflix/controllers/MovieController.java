@@ -32,7 +32,7 @@ public class MovieController {
 	
 	@PreAuthorize("hasAnyRole('MEMBER','VISITOR')")
 	@GetMapping (value = "/{id}")
-	public ResponseEntity<MovieDetailsDTO> findById (@PathVariable Long id){
+	public ResponseEntity<MovieDetailsDTO> searchById (@PathVariable Long id){
 		MovieDetailsDTO dto = service.findById(id);
 		return ResponseEntity.ok().body(dto);
 	}

@@ -41,7 +41,7 @@ public class MovieDetailsDTO {
 		this.synopsis = entity.getSynopsis();
 		this.genre = new GenreDTO(entity.getGenre().getId(), entity.getGenre().getName());
 		for (Review r : entity.getReviews()) {
-			reviews.add(new ReviewDTO(r));
+			reviews.add(new ReviewDTO(r.getText(), r.getUser().getName()));
 		}
 	}
 
