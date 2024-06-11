@@ -1,5 +1,8 @@
 package com.devsuperior.movieflix.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +41,12 @@ public class ReviewService {
 		
 		reviewDto = new ReviewDTO(entity);
 		return reviewDto;
+	}
+
+	public List<ReviewDTO> searchByIdMovie(Long idMovie) {
+		List<Review> result = repository.searchByIdMovie(idMovie);
+		List<ReviewDTO> listDTO = result.stream().map(x-> new ReviewDTO(x.getUser().getUsername(),x.getText())).collect(Collectors.toList());
+		return listDTO;
 	}
 	
 }
